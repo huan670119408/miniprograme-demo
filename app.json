@@ -1,12 +1,11 @@
 {
   "pages": [
-    "pages/index/block/block",
-    "pages/index/rating/rating",
     "pages/index/index",
-    "pages/rank",
-    "pages/rank/rank",
+    "pages/index/block/block",
+    "pages/index/poster/poster",
+    "pages/index/rating/rating",
     "pages/mine/mine",
-    "pages/index/poster/poster"
+    "pages/rank/rank"
   ],
   "tabBar": {
     "color": "#7A7E83",
@@ -21,7 +20,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/index/rating/rating",
+        "pagePath": "pages/mine/mine",
         "iconPath": "image/tabbar/mine.png",
         "selectedIconPath": "image/tabbar/mine_hl.png",
         "text": "我的"

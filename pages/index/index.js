@@ -1,54 +1,232 @@
-//index.js
-//获取应用实例
-const app = getApp()
-
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
+    threeBlockInfo: {
+      jueSeBanYan: {
+        blockTitle: "角色扮演",
+        blockMovies: {
+          "subjects": [{
+              "id": 1,
+              "images": {
+                "large": "/image/game/JueSeBanYan/WuKongWaiZhuan.gif"
+              },
+              "rating": {
+                "average": 8.2,
+                "max": 10,
+                "min": 0,
+                "stars": "40"
+              },
+              "title": "悟空外传"
+            },
+            {
+              "id": 2,
+              "images": {
+                "large": "/image/game/JueSeBanYan/FengShenYingJieZhuan.gif"
+              },
+              "rating": {
+                "average": 7.5,
+                "max": 10,
+                "min": 0,
+                "stars": "40"
+              },
+              "title": "封神英杰传"
+            },
+            {
+              "id": 3,
+              "images": {
+                "large": "/image/game/JueSeBanYan/MengHuanMoNiZhan2.gif"
+              },
+              "rating": {
+                "average": 8.6,
+                "max": 10,
+                "min": 0,
+                "stars": "45"
+              },
+              "title": "梦幻模拟战2"
+            },
+            {
+              "id": 4,
+              "images": {
+                "large": "/image/game/JueSeBanYan/ShuiHuZhuan.gif"
+              },
+              "rating": {
+                "average": 7.2,
+                "max": 10,
+                "min": 0,
+                "stars": "76"
+              },
+              "title": "水浒传"
+            },
+            {
+              "id": 5,
+              "images": {
+                "large": "/image/game/JueSeBanYan/TunShiTiandi3.gif"
+              },
+              "rating": {
+                "average": 5.2,
+                "max": 10,
+                "min": 0,
+                "stars": "25"
+              },
+              "title": "吞食天地3"
+            },
+            {
+              "id": 6,
+              "images": {
+                "large": "/image/game/JueSeBanYan/XinChuangShiJi.gif"
+              },
+              "rating": {
+                "average": 9.2,
+                "max": 10,
+                "min": 0,
+                "stars": "46"
+              },
+              "title": "新创世纪"
+            },
+            {
+              "id": 7,
+              "images": {
+                "large": "/image/game/JueSeBanYan/YaSeChuanShuo.gif"
+              },
+              "rating": {
+                "average": 8.2,
+                "max": 10,
+                "min": 0,
+                "stars": "44"
+              },
+              "title": "亚瑟传说"
+            }
+          ]
         }
-      })
+      },
+      dongZuoMaoXian: {
+        blockTitle: "动作冒险",
+        blockMovies: {
+          "subjects": [{
+            "id": "b1",
+            "images": {
+              "large": "/image/game/DongZuoMaoXian/HunDouLuo.gif"
+            },
+            "rating": {
+              "average": 8.2,
+              "max": 10,
+              "min": 0,
+              "stars": "40"
+            },
+            "title": "魂斗罗"
+          },
+          {
+            "id": "b2",
+            "images": {
+              "large": "/image/game/DongZuoMaoXian/LuoRiQiShi.gif"
+            },
+            "rating": {
+              "average": 7.5,
+              "max": 10,
+              "min": 0,
+              "stars": "40"
+            },
+            "title": "落日骑士"
+          },
+          {
+            "id": "b3",
+            "images": {
+              "large": "/image/game/DongZuoMaoXian/NuZhiTieQuan.gif"
+            },
+            "rating": {
+              "average": 8.6,
+              "max": 10,
+              "min": 0,
+              "stars": "45"
+            },
+            "title": "怒之铁拳"
+          },
+          {
+            "id": "b4",
+            "images": {
+              "large": "/image/game/DongZuoMaoXian/YinSuXiaoZi.gif"
+            },
+            "rating": {
+              "average": 7.2,
+              "max": 10,
+              "min": 0,
+              "stars": "76"
+            },
+            "title": "音速小子"
+          },
+          {
+            "id": 5,
+            "images": {
+              "large": "/image/game/DongZuoMaoXian/LaBiXiaoXin.gif"
+            },
+            "rating": {
+              "average": 5.2,
+              "max": 10,
+              "min": 0,
+              "stars": "25"
+            },
+            "title": "蜡笔小新"
+          }
+          ]
+        }
+      },
+      geDouJingJi: {
+        blockTitle: "格斗竞技",
+        blockMovies: {
+          "subjects": [{
+            "id": "c1",
+            "images": {
+              "large": "/image/game/GeDouJingJi/BaoLiMoTuo.gif"
+            },
+            "rating": {
+              "average": 8.2,
+              "max": 10,
+              "min": 0,
+              "stars": "40"
+            },
+            "title": "暴力摩托"
+          },
+          {
+            "id": "C2",
+            "images": {
+              "large": "/image/game/GeDouJingJi/GuanLanGaoShou.gif"
+            },
+            "rating": {
+              "average": 7.5,
+              "max": 10,
+              "min": 0,
+              "stars": "40"
+            },
+            "title": "封神英杰传"
+          },
+          {
+            "id": "C3",
+            "images": {
+              "large": "/image/game/GeDouJingJi/YouYouBaiShu.gif"
+            },
+            "rating": {
+              "average": 8.6,
+              "max": 10,
+              "min": 0,
+              "stars": "45"
+            },
+            "title": "幽游白书"
+          },
+          {
+            "id": "C4",
+            "images": {
+              "large": "/image/game/GeDouJingJi/ChaoJiJieTouBaWang2.gif"
+            },
+            "rating": {
+              "average": 7.2,
+              "max": 10,
+              "min": 0,
+              "stars": "76"
+            },
+            "title": "超级街头霸王2"
+          }
+          ]
+        }
+      } //排行榜
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  }
 })

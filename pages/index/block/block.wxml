@@ -1,25 +1,27 @@
 <import src="../poster/poster.wxml" />
-<view>
-  <!--区块顶栏-->
-  <view class='block-title-bar'>
-    <!--类别标题，如正在热映-->
-    <text class='block-title'>{{blockTitle}}</text>
-    <view class='block-more' catchtap='catchMore' data-title='{{blockTitle}}'>
-      <!--更多-->
-      <text class='block-more-text'>查看更多</text>
-      <!--右箭头-->
-      <image class='block-more-icon' src='/image/block/arrow-right.png'></image>
+<template name="template-block">
+  <view>
+    <!--区块顶栏-->
+    <view class='block-title-bar'>
+      <!--类别标题，如正在热映-->
+      <text class='block-title'>{{blockTitle}}</text>
+      <view class='block-more' catchtap='catchMore' data-title='{{blockTitle}}'>
+        <!--更多-->
+        <text class='block-more-text'>查看更多</text>
+        <!--右箭头-->
+        <image class='block-more-icon' src='/image/block/arrow-right.png'></image>
+      </view>
     </view>
+    <!--电影海报展示条-->
+    <scroll-view scroll-x="{{true}}" class='block-scroll-view'>
+      <view class='block-movie-row'>
+        <block wx:for="{{blockMovies.subjects}}" wx:key="*this" wx:for-item="poster">
+          <!--单个电影海报-->
+          <view class='block-movie-card'>
+            <template is="template-poster" data="{{...poster}}" />
+          </view>
+        </block>
+      </view>
+    </scroll-view>
   </view>
-  <!--电影海报展示条-->
-  <scroll-view scroll-x="{{true}}" class='block-scroll-view'>
-    <view class='block-movie-row'>
-      <block wx:for="{{blockMovies.subjects}}" wx:for-item="poster">
-        <!--单个电影海报-->
-        <view class='block-movie-card'>
-          <template is="template-poster" data="{{...poster}}" />
-        </view>
-      </block>
-    </view>
-  </scroll-view>
-</view>
+</template>
